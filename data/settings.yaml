@@ -1,0 +1,43 @@
+languages_available:
+  - code: en
+    name: English
+    flag: circle-flags:gb
+  - code: pl
+    name: Polski
+    flag: circle-flags:pl
+
+section_labels:
+  contact:
+    en: "Contact"
+    pl: "Kontakt"
+  summary:
+    en: "Summary"
+    pl: "Podsumowanie"
+  skills:
+    en: "Skills"
+    pl: "Umiejętności"
+  languages:
+    en: "Languages"
+    pl: "Języki"
+  certifications:
+    en: "Certifications"
+    pl: "Certyfikaty"
+  experience:
+    en: "Experience"
+    pl: "Doświadczenie"
+  education:
+    en: "Education"
+    pl: "Wykształcenie"
+  projects:
+    en: "Projects"
+    pl: "Projekty"
+
+
+data_files:
+  - data.yaml
+  - experience.yaml
+  - education.yaml
+  - skills.yaml
+  - languages.yaml
+  - certifications.yaml
+  - projects.yaml

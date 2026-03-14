@@ -1,0 +1,7 @@
+education:
+  - degree:
+      en: "High School Diploma"
+      pl: "Świadectwo Maturalne"
+    institution: "Your High School Name"
+    year: "2012"
+    icon: "mdi:school-outline"

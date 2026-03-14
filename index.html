@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Side Navigation -->
+ <nav id="sidenav">
+  <div class="sidenav-header">
+    <div class="sidenav-photo" id="sidenav-photo">
+      <img src="photo.png" alt="Profile Photo" onerror="this.style.display='none'">
+    </div>
+    <div class="sidenav-name" id="sidenav-name"></div>
+  </div>
+  <ul class="sidenav-links" id="nav-links"></ul>
+  <div class="language-switcher" id="language-switcher"></div>
+</nav>
+
+  <!-- Mobile hamburger -->
+  <button id="hamburger" class="hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+<!-- Mobile drawer -->
+<div id="mobile-drawer">
+  <ul id="mobile-nav-links"></ul>
+  <div id="mobile-language-switcher" class="language-switcher"></div>
+</div>
+
+  <!-- HEADER (mobile only) -->
+  <header id="header">
+    <div class="header-card">
+      <div class="header-photo-wrap" id="header-photo">
+        <img src="photo.png" alt="Profile Photo" onerror="this.style.display='none'">
+      </div>
+      <div class="header-info">
+        <h1 id="header-name"></h1>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section id="contact-section" class="section">
+      <div class="subsection-nav">
+        <button class="subsection-tab active" data-target="contact" data-label-key="contact">Contact</button>
+      </div>
+      <div id="contact" class="subsection active">
+        <div id="contact-grid"></div>
+      </div>
+    </section>
+
+    <section id="summary-section" class="section">
+      <div class="subsection-nav">
+        <button class="subsection-tab active" data-target="summary" data-label-key="summary">Summary</button>
+      </div>
+      <div id="summary" class="subsection active">
+        <p id="summary-text"></p>
+      </div>
+    </section>
+
+    <section id="expertise" class="section">
+      <div class="subsection-nav">
+        <button class="subsection-tab active" data-target="skills" data-label-key="skills">Skills</button>
+        <button class="subsection-tab" data-target="languages" data-label-key="languages">Languages</button>
+        <button class="subsection-tab" data-target="certifications" data-label-key="certifications">Certifications</button>
+      </div>
+      <div id="skills" class="subsection active">
+        <div id="skills-grid"></div>
+      </div>
+      <div id="languages" class="subsection">
+        <div id="languages-grid"></div>
+      </div>
+      <div id="certifications" class="subsection">
+        <div id="certifications-grid"></div>
+      </div>
+    </section>
+
+    <section id="history" class="section">
+      <div class="subsection-nav">
+        <button class="subsection-tab" data-target="experience" data-label-key="experience">
+  Experience <span id="experience-count" class="tab-badge"></span>
+</button>
+        <button class="subsection-tab" data-target="education" data-label-key="education">Education</button>
+        <button class="subsection-tab" data-target="projects" data-label-key="projects">Projects</button>
+      </div>
+      <div id="experience" class="subsection active">
+        <div id="experience-timeline"></div>
+      </div>
+      <div id="education" class="subsection">
+        <div id="education-list"></div>
+      </div>
+      <div class="subsection" id="projects">
+        <div id="projects-list"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p id="footer-text"></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

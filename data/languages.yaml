@@ -1,0 +1,19 @@
+languages:
+  polish:
+    icon: circle-flags:pl
+    level: 100
+    proficiency:
+      en: "Native"
+      pl: "Język ojczysty"
+  english:
+    icon: circle-flags:gb
+    level: 95
+    proficiency:
+      en: "Full Professional Proficiency"
+      pl: "Pełna biegłość zawodowa"
+  german:
+    icon: circle-flags:de
+    level: 30
+    proficiency:
+      en: "Basic"
+      pl: "Podstawowy"

@@ -1,0 +1,30 @@
+name:
+  en: "Mats Jacek Jabłonowski"
+  pl: "Mats Jacek Jabłonowski"
+
+contact:
+  phone:
+    value: "+48 451 199 446"
+    icon: "mdi:phone"
+    href: "tel:+48451199446"
+  email:
+    value: "jablonowski@mats.im"
+    icon: "mdi:email"
+    href: "mailto:jablonowski@mats.im"
+  location:
+    value: "Katowice, PL"
+    icon: "mdi:map-marker"
+  linkedin:
+    value: "@mats-jablonowski"
+    icon: "mdi:linkedin"
+    href: "https://linkedin.com/in/mats-jablonowski"
+  github:
+    value: "@vizcraftpl"
+    icon: "mdi:github"
+    href: "https://github.com/vizcraftpl"
+
+professional_summary:
+  en: >
+    Data-driven professional with 10+ years of experience improving operational performance through analytics, automation, and workforce optimization.
+  pl: >
+    Profesjonalista z ponad 10-letnim doświadczeniem w poprawie wydajności operacyjnej poprzez analitykę, automatyzację i optymalizację zasobów ludzkich.

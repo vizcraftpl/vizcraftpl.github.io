@@ -1,0 +1,63 @@
+skills:
+  languages:
+    icon: mdi:code-braces
+    level: 85
+    name:
+      en: "Languages"
+      pl: "Języki"
+    subskills:
+      - "Python"
+      - "JavaScript"
+      - "TypeScript"
+      - "Java"
+      - "SQL"
+      - "Bash"
+  frameworks:
+    icon: mdi:layers-outline
+    level: 80
+    name:
+      en: "Frameworks"
+      pl: "Frameworki"
+    subskills:
+      - "React"
+      - "Node.js"
+      - "Express"
+      - "Django"
+      - "Spring Boot"
+  cloud_devops:
+    icon: mdi:cloud-outline
+    level: 75
+    name:
+      en: "Cloud & DevOps"
+      pl: "Chmura i DevOps"
+    subskills:
+      - "AWS (EC2, S3, Lambda, RDS)"
+      - "Docker"
+      - "Kubernetes"
+      - "Terraform"
+      - "GitHub Actions"
+      - "Jenkins"
+  databases:
+    icon: mdi:database-outline
+    level: 70
+    name:
+      en: "Databases"
+      pl: "Bazy Danych"
+    subskills:
+      - "PostgreSQL"
+      - "MySQL"
+      - "MongoDB"
+      - "Redis"
+  tools:
+    icon: mdi:wrench-outline
+    level: 90
+    name:
+      en: "Tools"
+      pl: "Narzędzia"
+    subskills:
+      - "Git"
+      - "JIRA"
+      - "Confluence"
+      - "Postman"
+      - "VS Code"
+      - "IntelliJ IDEA"

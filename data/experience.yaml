@@ -1,0 +1,63 @@
+experience:
+  - company:
+      en: "Tech Solutions Ltd"
+      pl: "Tech Solutions Ltd"
+    location:
+      en: "London, UK"
+      pl: "Londyn, UK"
+    logo: "https://example.com/techsolutions.svg"
+    icon: "mdi:laptop"
+    start_date: "March 2020"
+    end_date:
+      en: "Present"
+      pl: "Obecnie"
+    positions:
+      - job_title:
+          en: "Senior Software Engineer"
+          pl: "Starszy Inżynier Oprogramowania"
+        start_date: "March 2020"
+        end_date:
+          en: "Present"
+          pl: "Obecnie"
+        responsibilities:
+          - en: "Led a team of 6 engineers to deliver a microservices migration reducing system latency by 40%"
+            pl: "Kierowałem zespołem 6 inżynierów w migracji do mikrousług, zmniejszając opóźnienia systemu o 40%"
+          - en: "Architected and implemented RESTful APIs serving 2M+ daily active users"
+            pl: "Zaprojektowałem i wdrożyłem RESTful API obsługujące ponad 2 mln aktywnych użytkowników dziennie"
+  - company:
+      en: "Tech dupions Ltd"
+      pl: "Tech dupions Ltd"
+    location:
+      en: "London, UK"
+      pl: "Londyn, UK"
+    logo: "https://example.com/techsolutions.svg"
+    icon: "mdi:laptop"
+    start_date: "March 2020"
+    end_date:
+      en: "Present"
+      pl: "Obecnie"
+    positions:
+      - job_title:
+          en: "Senior Software Engineer"
+          pl: "Starszy Inżynier Oprogramowania"
+        start_date: "March 2019"
+        end_date:
+          en: "Present"
+          pl: "Obecnie"
+        responsibilities:
+          - en: "Led a team of 6 engineers to deliver a microservices migration reducing system latency by 40%"
+            pl: "Kierowałem zespołem 6 inżynierów w migracji do mikrousług, zmniejszając opóźnienia systemu o 40%"
+          - en: "Architected and implemented RESTful APIs serving 2M+ daily active users"
+            pl: "Zaprojektowałem i wdrożyłem RESTful API obsługujące ponad 2 mln aktywnych użytkowników dziennie"
+      - job_title:
+          en: "Senior Software Engineer"
+          pl: "Starszy Inżynier Oprogramowania"
+        start_date: "March 2018"
+        end_date:
+          en: "Present"
+          pl: "Obecnie"
+        responsibilities:
+          - en: "Led a team of 6 engineers to deliver a microservices migration reducing system latency by 40%"
+            pl: "Kierowałem zespołem 6 inżynierów w migracji do mikrousług, zmniejszając opóźnienia systemu o 40%"
+          - en: "Architected and implemented RESTful APIs serving 2M+ daily active users"
+            pl: "Zaprojektowałem i wdrożyłem RESTful API obsługujące ponad 2 mln aktywnych użytkowników dziennie"

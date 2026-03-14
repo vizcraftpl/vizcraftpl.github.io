@@ -1,0 +1,27 @@
+certifications:
+  - name:
+      en: "AWS Certified Solutions Architect – Associate"
+      pl: "AWS Certified Solutions Architect – Associate"
+    issuer: "Amazon Web Services"
+    date:
+      en: "January 2023"
+      pl: "Styczeń 2023"
+    icon: "mdi:aws"
+    url: "https://aws.amazon.com/certification/"
+  - name:
+      en: "Certified Kubernetes Administrator (CKA)"
+      pl: "Certyfikowany Administrator Kubernetes (CKA)"
+    issuer: "Cloud Native Computing Foundation"
+    date:
+      en: "August 2022"
+      pl: "Sierpień 2022"
+    icon: "mdi:kubernetes"
+    url: "https://www.cncf.io/certification/cka/"
+  - name:
+      en: "Google Professional Data Engineer"
+      pl: "Google Professional Data Engineer"
+    issuer: "Google Cloud"
+    date:
+      en: "March 2021"
+      pl: "Marzec 2021"
+    icon: "mdi:google-cloud"

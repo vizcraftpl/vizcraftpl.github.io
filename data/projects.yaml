@@ -1,0 +1,20 @@
+projects:
+  - name: "Open Source API Rate Limiter"
+    description:
+      en: "Built and published a Python library for API rate limiting with Redis backend, gaining 800+ GitHub stars"
+      pl: "Stworzyłem i opublikowałem bibliotekę Python do limitowania zapytań API z backendem Redis, zdobywając 800+ gwiazdek na GitHub"
+    technologies:
+      - "Python"
+      - "Redis"
+      - "PyPI"
+    url: "https://github.com/johnsmith/rate-limiter"
+  - name: "Personal Finance Dashboard"
+    description:
+      en: "Developed a full-stack web application for tracking personal finances with bank API integrations"
+      pl: "Stworzyłem aplikację full-stack do śledzenia finansów osobistych z integracją bankowych API"
+    technologies:
+      - "React"
+      - "Node.js"
+      - "PostgreSQL"
+      - "Plaid API"
+    url: "https://github.com/johnsmith/finance-dashboard"
