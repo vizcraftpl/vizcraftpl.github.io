@@ -1107,8 +1107,18 @@ footer {
     padding-left: 0;
   }
   
-  #sidenav {
+  #sidenav, .tl-dot--employer, #experience-timeline::before { 
     display: none !important;
+    
+  }
+  #experience-timeline {
+    padding: 0;
+  }
+  .tl-positions {
+    padding: 0.25rem;
+  }
+  .tl-positions::before {
+    left:       calc(-1rem - 5px);
   }
   
   #header {
