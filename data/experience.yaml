@@ -5,7 +5,7 @@ experience:
     location:
       en: "Malmö, Sweden"
       pl: "Malmö, Szwecja"
-    logo: 
+    logo: https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikea_logo.svg
     icon:
     start_date: 
       en: "January 2023"
@@ -39,7 +39,7 @@ experience:
       en: "Malmö, Sweden"
       pl: "Malmö, Szwecja"
     logo: 
-    icon:
+    icon: famicons:restaurant-sharp
     start_date: 
       en: "September 2025"
       pl: "Wrzesień 2025"
@@ -71,7 +71,7 @@ experience:
       en: "Wrocław, Poland"
       pl: "Wrocław, Polska"
     logo: 
-    icon: 
+    icon: ix:work-case-filled
     start_date: 
       en: "September 2021"
       pl: "Wrzesień 2021"
@@ -104,7 +104,7 @@ experience:
     location:
       en: "Katowice, Poland"
       pl: "Katowice, Polska"
-    logo: 
+    logo: https://cdn.brandfetch.io/id8cjoy0f9/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1668518770057
     icon: 
     start_date: 
       en: "October 2015"

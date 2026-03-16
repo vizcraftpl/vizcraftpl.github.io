@@ -1,7 +1,8 @@
 skills:
   Softskills:
+    type: soft
     icon: fluent-color:people-16
-    level: 85
+    level: 100
     name:
       en: "Soft skills"
       pl: "Umiejętności Miękkie"
@@ -21,44 +22,47 @@ skills:
       - en: "Adaptability & fast learning"
         pl: "Adaptacyjność i szybkie uczenie się"
   Data:
+    type: technical
     icon: fluent-color:data-trending-16
-    level: 90
+    level: 85
     name:
       en: "Data"
       pl: "Dane"
     subskills:
-      - en: "Analytics (Senior)"
-        pl: "Analityka (Senior)"
-      - en: "Engineering (Mid)"
-        pl: "Inżynieria danych (Mid)"
-      - en: "Forecasting (Timeseries, Prophet)"
-        pl: "Prognozowanie (Szeregi czasowe, Prophet)"
+      - en: "Analytics"
+        pl: "Analityka"
+      - en: "Engineering"
+        pl: "Inżynieria danych"
+      - en: "Forecasting"
+        pl: "Prognozowanie"
 
   Presentations:
+    type: soft
     icon: fluent-color:presenter-16
-    level: 85
+    level: 100
     name:
       en: "Presentations"
       pl: "Prezentacje"
     subskills:
       - en: "PowerPoint"
         pl: "PowerPoint"
-      - en: "Design"
-        pl: "Projektowanie"
-      - en: "Storytelling"
-        pl: "Storytelling"
+      - en: "Strong presentation skills"
+        pl: "Zaawansowane prezentacje"
 
   PowerBI:
-    icon: fluent-color:data-pie-24
-    level: 92
+    type: technical
+    icon: logos:microsoft-power-bi
+    level: 95
     name:
       en: "Power BI"
       pl: "Power BI"
     subskills:
       - en: "Orchestration – Enhanced Refresh API & Power Automate"
         pl: "Orkiestracja – Enhanced Refresh API i Power Automate"
-      - en: "Power Query | M"
-        pl: "Power Query | M"
+      - en: "Power Query"
+        pl: "Power Query"
+      - en: "M"
+        pl: "M"
       - en: "Visual Design"
         pl: "Projektowanie wizualne"
       - en: "Star/Galaxy Schema"
@@ -71,12 +75,11 @@ skills:
         pl: "ALM Toolkit"
       - en: "TMDL"
         pl: "TMDL"
-      - en: "Migration from Tableau"
-        pl: "Migracja z Tableau"
 
   SQL:
-    icon: fluent-color:database-16
-    level: 88
+    type: technical
+    icon: simple-icons:googlebigquery
+    level: 85
     name:
       en: "SQL (Google)"
       pl: "SQL (Google)"
@@ -85,10 +88,6 @@ skills:
         pl: "DDL, DML, DCL"
       - en: "Scripting"
         pl: "Skryptowanie"
-      - en: "CTE"
-        pl: "CTE"
-      - en: "Joins"
-        pl: "Złączenia"
       - en: "Window, Navigation & Analytic Functions"
         pl: "Funkcje okna, nawigacji i analityczne"
       - en: "Exports"
@@ -97,8 +96,9 @@ skills:
         pl: "Optymalizacja wydajności i kosztów zapytań"
 
   Python:
-    icon: fluent-color:thinking-16
-    level: 80
+    type: technical
+    icon: material-icon-theme:python
+    level: 60
     name:
       en: "Python"
       pl: "Python"
@@ -109,14 +109,11 @@ skills:
         pl: "NumPy & Pandas"
       - en: "ODBC"
         pl: "ODBC"
-      - en: "NeuralProphet"
-        pl: "NeuralProphet"
-      - en: "PySpark"
-        pl: "PySpark"
 
   Excel:
-    icon: fluent-color:document-table-16
-    level: 88
+    type: technical
+    icon: vscode-icons:file-type-excel
+    level: 100
     name:
       en: "Excel"
       pl: "Excel"
@@ -135,8 +132,9 @@ skills:
         pl: "Tablice"
 
   GoogleCloud:
-    icon: fluent-color:cloud-16
-    level: 78
+    type: technical
+    icon: material-icon-theme:gcp
+    level: 55
     name:
       en: "Google Cloud"
       pl: "Google Cloud"
@@ -153,8 +151,9 @@ skills:
         pl: "API / gcloud CLI"
 
   ContactCenter:
-    icon: fluent-color:headset-16
-    level: 75
+    type: technical
+    icon: ix:support
+    level: 85
     name:
       en: "Contact Center"
       pl: "Contact Center"
@@ -171,8 +170,9 @@ skills:
         pl: "MS Dynamics"
 
   Web:
-    icon: fluent-color:globe-16
-    level: 70
+    type: technical
+    icon: iconoir:internet
+    level: 40
     name:
       en: "Web"
       pl: "Web"
@@ -185,8 +185,9 @@ skills:
         pl: "CSS"
 
   Docker:
-    icon: fluent-color:box-16
-    level: 72
+    type: technical
+    icon: logos:docker-icon
+    level: 65
     name:
       en: "Docker"
       pl: "Docker"
@@ -203,6 +204,7 @@ skills:
         pl: "Budowanie obrazów"
 
   Other:
+    type: technical
     icon: fluent-color:settings-16
     level: 75
     name:

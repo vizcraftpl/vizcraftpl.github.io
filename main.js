@@ -92,7 +92,7 @@ function fitSidenavLinks() {
     if (!count) return;
 
     const gap        = count > 1 ? (count - 1) * 4.8 : 0;
-    const available  = links.clientHeight - gap - 8;
+    const available  = links.clientHeight - gap - 24;
     const itemHeight = available / count;
 
     const basePx    = 16;
@@ -116,6 +116,14 @@ function fitSidenavLinks() {
   });
 }
 
+// ─────────────────────────────────────────────
+// FIT COLUMNS
+// ─────────────────────────────────────────────
+
+function fitColumns(grid) {
+  const count = grid.children.length;
+  grid.style.columns = count < 3 ? count : '';
+}
 
 
 // ─────────────────────────────────────────────
@@ -345,45 +353,95 @@ function buildSummary(data) {
 function buildSkills(data) {
   const skills = data.skills;
   if (!skills) return;
-  const grid = document.getElementById('skills-grid');
-  grid.innerHTML = '';
 
-  for (const [key, value] of Object.entries(skills).sort(([, a], [, b]) => {
+  const grids = {
+    technical: document.getElementById('skills-grid-technical'),
+    soft:      document.getElementById('skills-grid-soft'),
+  };
+  grids.technical.innerHTML = '';
+  grids.soft.innerHTML      = '';
+
+  const gridWidth  = grids.technical.offsetWidth || grids.soft.offsetWidth || 600;
+  const colCount   = Math.max(1, Math.round(gridWidth / 280));
+  const cardWidth  = (gridWidth - (colCount - 1) * 12) / colCount - 32;
+  const ROW_BUDGET = Math.floor(cardWidth / 8.5);
+
+  const sorted = Object.entries(skills).sort(([, a], [, b]) => {
     if (b.subskills.length !== a.subskills.length) return b.subskills.length - a.subskills.length;
     return (b.level || 0) - (a.level || 0);
-  })) {
+  });
+
+  for (const [key, value] of sorted) {
     const label     = t(value.name) || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
     const icon      = value.icon || 'mdi:star-outline';
     const level     = value.level || 0;
-    const subskills = (value.subskills || []).map(s => t(s));
+    const type      = value.type === 'soft' ? 'soft' : 'technical';
+    const grid      = grids[type];
 
-    const card = document.createElement('div');
-    card.className = 'skill-card';
-    card.innerHTML = `
-      <span class="skill-icon">
-        <span class="iconify" data-icon="${icon}" data-width="24"></span>
-      </span>
-      <div class="skill-body">
-        <strong class="skill-name">${label}</strong>
-        <div class="skill-bar-wrap">
-          <span class="skill-bar-label">${level}%</span>
-          <div class="skill-bar" data-level="${level}"></div>
-        </div>
-        <span class="skill-items">${subskills.map(s => `<span class="skill-tag">${s}</span>`).join(', ')}</span>
+    const subskills = (() => {
+      const raw    = (value.subskills || []).map(s => t(s));
+      const sorted = [...raw].sort((a, b) => b.length - a.length);
+      const result = [];
+      const used   = new Array(sorted.length).fill(false);
+
+      for (let i = 0; i < sorted.length; i++) {
+        if (used[i]) continue;
+        used[i] = true;
+        let budget = ROW_BUDGET - sorted[i].length;
+        result.push(sorted[i]);
+
+        for (let j = sorted.length - 1; j > i; j--) {
+          if (used[j]) continue;
+          if (sorted[j].length <= budget) {
+            result.push(sorted[j]);
+            budget -= sorted[j].length;
+            used[j] = true;
+          }
+        }
+      }
+      return result;
+    })();
+
+    if (type === 'soft') {
+  subskills.forEach(s => {
+    const tag = document.createElement('span');
+    tag.className = 'skill-tag';
+    tag.textContent = s;
+    grid.appendChild(tag);
+  });
+} else {
+  const card = document.createElement('div');
+  card.className = 'skill-card';
+  card.innerHTML = `
+    <span class="skill-icon">
+      <span class="iconify" data-icon="${icon}" data-width="24"></span>
+    </span>
+    <div class="skill-body">
+      <strong class="skill-name">${label}</strong>
+      <div class="skill-bar-wrap">
+        <span class="skill-bar-label">${level}%</span>
+        <div class="skill-bar" data-level="${level}"></div>
       </div>
-    `;
-    grid.appendChild(card);
-    if (subskills.length >= 6) {
-      card.style.gridColumn = '1 / -1';
-    };
+      <span class="skill-items">${subskills.map(s => `<span class="skill-tag">${s}</span>`).join('')}</span>
+    </div>
+  `;
+  grid.appendChild(card);
+}
   }
 
   requestAnimationFrame(() => {
-    document.querySelectorAll('#skills-grid .skill-bar').forEach(bar => {
+    document.querySelectorAll('.skills-grid .skill-bar').forEach(bar => {
       bar.style.width = bar.dataset.level + '%';
+      Object.values(grids).forEach(g => fitColumns(g));
     });
   });
+
+  if (!buildSkills._resizeBound) {
+    buildSkills._resizeBound = true;
+    window.addEventListener('resize', () => buildSkills(cvData));
+  }
 }
+
 
 
 
@@ -415,7 +473,7 @@ function buildLanguages(data) {
     `;
     grid.appendChild(card);
   }
-
+  fitColumns(document.getElementById('languages-grid'));
   requestAnimationFrame(() => {
     document.querySelectorAll('#languages-grid .skill-bar').forEach(bar => {
       bar.style.width = bar.dataset.level + '%';
@@ -453,6 +511,10 @@ function buildCertifications(data) {
     `;
     grid.appendChild(card);
   }
+  
+  fitColumns(document.getElementById('certifications-grid'));
+
+
 }
 
 
@@ -527,8 +589,7 @@ function buildExperience(data) {
 
   for (const job of items) {
     const single    = job.positions.length === 1;
-    const dateRange = t(job.start_date) + ' – ' + t(job.end_date);
-    const position  = single ? job.positions[0] : null;
+    const dateRange = t(job.start_date) + ' ' + t(job.end_date);
 
     const employer = document.createElement('div');
     employer.className = 'tl-employer';
@@ -556,53 +617,70 @@ function buildExperience(data) {
     headHTML += '<div class="tl-employer-meta">';
     headHTML += '<div class="tl-company">' + t(job.company) + '</div>';
     headHTML += '<div class="tl-location">' + t(job.location) + '</div>';
-
-    if (single && position) {
-      headHTML += '<div class="tl-title-inline">' + t(position.job_title) + '</div>';
-      headHTML += '<div class="tl-date">' + t(position.start_date) + ' – ' + t(position.end_date) + '</div>';
-    } else {
-      headHTML += '<div class="tl-date">' + dateRange + '</div>';
-    }
-
+    headHTML += '<div class="tl-date">' + t(job.start_date) + ' – ' + t(job.end_date) + '</div>';
     headHTML += '</div></div>';
     card.innerHTML = headHTML;
 
-    if (single && position && position.responsibilities) {
-      let respHTML = '<ul class="tl-responsibilities">';
-      for (const r of position.responsibilities) {
-        respHTML += '<li>' + t(r) + '</li>';
-      }
-      respHTML += '</ul>';
-      card.innerHTML += respHTML;
-    }
-
-    if (!single) {
-      let posHTML = '<div class="tl-positions">';
-      for (const p of job.positions) {
-        posHTML += '<div class="tl-position">';
-        posHTML += '<div class="tl-dot tl-dot--position"></div>';
-        posHTML += '<div class="tl-position-body">';
-        posHTML += '<div class="tl-position-head">';
-        posHTML += '<strong class="tl-pos-title">' + t(p.job_title) + '</strong>';
-        posHTML += '<span class="tl-date">' + t(p.start_date) + ' – ' + t(p.end_date) + '</span>';
-        posHTML += '</div>';
-        if (p.responsibilities) {
-          posHTML += '<ul class="tl-responsibilities">';
-          for (const r of p.responsibilities) {
-            posHTML += '<li>' + t(r) + '</li>';
-          }
-          posHTML += '</ul>';
-        }
-        posHTML += '</div></div>';
-      }
+    const positions = job.positions;
+    let posHTML = '<div class="tl-positions">';
+    for (const p of positions) {
+      posHTML += '<div class="tl-position">';
+      posHTML += '<div class="tl-dot tl-dot--position"></div>';
+      posHTML += '<div class="tl-position-body">';
+      posHTML += '<div class="tl-position-head">';
+      posHTML += '<strong class="tl-pos-title">' + t(p.job_title) + '</strong>';
+      posHTML += '<span class="tl-date">' + t(p.start_date) + ' – ' + t(p.end_date) + '</span>';
       posHTML += '</div>';
-      card.innerHTML += posHTML;
+      if (p.responsibilities) {
+        posHTML += '<ul class="tl-responsibilities">';
+        for (const r of p.responsibilities) {
+          posHTML += '<li>' + t(r) + '</li>';
+        }
+        posHTML += '</ul>';
+      }
+      posHTML += '</div></div>';
     }
+    posHTML += '</div>';
+    card.innerHTML += posHTML;
 
     employer.appendChild(card);
     timeline.appendChild(employer);
   }
+ document.querySelectorAll('.tl-logo').forEach(img => {
+  img.addEventListener('load', () => {
+    const ratio     = img.naturalWidth / img.naturalHeight;
+    const container = img.closest('.tl-employer-logo');
+    const h         = container.offsetHeight;
+    container.style.width = `${(h - 12) * ratio + 12}px`;
+
+    // center employer dot on logo
+    const employer  = img.closest('.tl-employer');
+    const dot       = employer.querySelector('.tl-dot--employer');
+    const logoTop   = container.offsetTop;
+    dot.style.top   = `${logoTop + h / 2 - 8}px`; /* ← 8 = half dot height (16px) */
+  });
+});
+document.querySelectorAll('.tl-employer').forEach(employer => {
+  const container = employer.querySelector('.tl-employer-logo');
+  const dot       = employer.querySelector('.tl-dot--employer');
+  const logo      = employer.querySelector('.tl-logo');
+
+  if (!logo) {
+    // icon case — make container square
+    const h             = container.offsetHeight;
+    container.style.width = `${h}px`;
+
+    // center dot
+    const logoTop   = container.offsetTop;
+    dot.style.top   = `${logoTop + h / 2 - 8}px`;
+  }
+});
+  document.querySelectorAll('.tl-position').forEach(pos => {
+  pos.style.setProperty('--pos-h', `${pos.offsetHeight}px`);
+  });
+  
 }
+
 
 
 
@@ -758,6 +836,7 @@ function buildProjects(data) {
     `;
     list.appendChild(card);
   }
+  fitColumns(document.getElementById('projects-list'));
 }
 // ─────────────────────────────────────────────
 // SECTION TITLE ANIMATIONS
@@ -797,6 +876,7 @@ function animateBarsIn(container) {
 // RENDER CONTENT
 // ─────────────────────────────────────────────
 function renderContent(yamlData) {
+  document.getElementById('main-content').style.visibility = 'hidden';
   updateSectionLabels(yamlData);
   buildNav(yamlData);
   buildHeader(yamlData);
@@ -810,6 +890,7 @@ function renderContent(yamlData) {
   buildProjects(yamlData);
   initSubsectionTabs();
   initSectionTitleAnimations();
+  document.getElementById('main-content').style.visibility = 'visible';
 
   requestAnimationFrame(fitSidenavLinks);
 }

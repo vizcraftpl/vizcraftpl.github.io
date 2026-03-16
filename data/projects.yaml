@@ -1,8 +1,9 @@
 projects:
   - name: "YAML Resume Website"
+    icon: pepicons-pop:cv
     description:
-      en: "With the help of Claude I built a multi-language resume website that's generated dynamically from simple YAML files"
-      pl: "Z pomocą Claude zbudowałem wielojęzyczną stronę internetową z życiorysem generowanym dynamicznie z prostych plików YAML"
+      en: "A resume website dynamically generated from simple YAML files. "
+      pl: "Dynamiczna strona internetowa z życiorysem generowanym dynamicznie z prostych plików YAML"
     technologies:
       - "HTML"
       - "CSS"

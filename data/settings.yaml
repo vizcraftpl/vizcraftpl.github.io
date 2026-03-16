@@ -13,9 +13,12 @@ section_labels:
   summary:
     en: "Summary"
     pl: "Podsumowanie"
-  skills:
-    en: "Skills"
-    pl: "Umiejętności"
+  skills_technical:
+    en: "Technical"
+    pl: "Techniczne"
+  skills_soft:
+    en: "Soft Skills"
+    pl: "Umiejętności Miękkie"
   languages:
     en: "Languages"
     pl: "Języki"
