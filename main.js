@@ -244,19 +244,25 @@ function buildNav(data) {
   const hamburger = document.getElementById('hamburger');
   const drawer    = document.getElementById('mobile-drawer');
 
+  if (!hamburger.dataset.bound) {
+  hamburger.dataset.bound = 'true';
   hamburger.addEventListener('click', () => {
     const open = hamburger.classList.toggle('open');
     drawer.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
+  };
 
-  drawer.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
+  if (!drawer.dataset.bound) {
+  drawer.dataset.bound = 'true';
+  drawer.addEventListener('click', e => {
+    if (e.target.closest('a')) {
       hamburger.classList.remove('open');
       drawer.classList.remove('open');
       document.body.style.overflow = '';
-    });
+    }
   });
+  };
 
   // Scroll-based active highlight
   function onScroll() {
@@ -342,7 +348,10 @@ function buildSkills(data) {
   const grid = document.getElementById('skills-grid');
   grid.innerHTML = '';
 
-  for (const [key, value] of Object.entries(skills)) {
+  for (const [key, value] of Object.entries(skills).sort(([, a], [, b]) => {
+    if (b.subskills.length !== a.subskills.length) return b.subskills.length - a.subskills.length;
+    return (b.level || 0) - (a.level || 0);
+  })) {
     const label     = t(value.name) || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
     const icon      = value.icon || 'mdi:star-outline';
     const level     = value.level || 0;
@@ -360,10 +369,13 @@ function buildSkills(data) {
           <span class="skill-bar-label">${level}%</span>
           <div class="skill-bar" data-level="${level}"></div>
         </div>
-        <span class="skill-items">${subskills.join(', ')}</span>
+        <span class="skill-items">${subskills.map(s => `<span class="skill-tag">${s}</span>`).join(', ')}</span>
       </div>
     `;
     grid.appendChild(card);
+    if (subskills.length >= 6) {
+      card.style.gridColumn = '1 / -1';
+    };
   }
 
   requestAnimationFrame(() => {
