@@ -46,20 +46,21 @@ function initBackground() {
     shapes = Array.from({ length: n }, makeShape);
   }
 
-  function drawShape(s) {
-    ctx.beginPath();
-    for (let i = 0; i < s.sides; i++) {
-      const angle = s.rotation + (i / s.sides) * Math.PI * 2;
-      const px = s.x + s.radius * Math.cos(angle);
-      const py = s.y + s.radius * Math.sin(angle);
-      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
-    }
-    ctx.closePath();
-    if (s.filled) { ctx.fillStyle = s.fill; ctx.fill(); }
-    ctx.strokeStyle = s.stroke;
-    ctx.lineWidth   = 1;
-    ctx.stroke();
+  function drawShape(s, targetCtx) {
+  const c = targetCtx || ctx;   // ← use passed context, or default to live one
+  c.beginPath();
+  for (let i = 0; i < s.sides; i++) {
+    const angle = s.rotation + (i / s.sides) * Math.PI * 2;
+    const px = s.x + s.radius * Math.cos(angle);
+    const py = s.y + s.radius * Math.sin(angle);
+    i === 0 ? c.moveTo(px, py) : c.lineTo(px, py);
   }
+  c.closePath();
+  if (s.filled) { c.fillStyle = s.fill; c.fill(); }
+  c.strokeStyle = s.stroke;
+  c.lineWidth   = 1;
+  c.stroke();
+}
 
   function tick() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -80,4 +81,5 @@ function initBackground() {
   spawnShapes();
   tick();
   window.addEventListener('resize', () => { resize(); spawnShapes(); });
+  return { canvas, shapes, drawShape };
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+</head>
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+<aside id="left-col">
+   <div id="bg-download-controls">
+  <div class="nav-links">
+    <li>
+      <select id="bg-size-select" class="nav-links-select">
+        <option value="screen">Screen (live)</option>
+        <option value="1920x1080">1920 × 1080</option>
+        <option value="2560x1440">2560 × 1440</option>
+        <option value="3840x2160">3840 × 2160 (4K)</option>
+        <option value="1080x1920">1080 × 1920 (mobile)</option>
+      </select>
+    </li>
+    <li>
+      <a id="bg-download-btn" role="button" title="Download background snapshot">
+        <span class="iconify" data-icon="mdi:download"></span>
+        Save BG
+      </a>
+    </li>
+  </div>
+</div>
+</aside>
+    <script src="assets/js/state.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/background.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
