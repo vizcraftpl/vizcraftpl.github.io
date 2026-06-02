@@ -1,4 +1,13 @@
 projects:
+  - name: "Ticket Handling Performance Dashboard"
+    icon: logos:microsoft-power-bi
+    description:
+      en: "A sample dashboard showcasing data modelling and presentation skills in Power BI based on a sample IT Helpdesk dataset. "
+      pl: "Przykładowy Dashboard prezentujący moje zdolności modelowania i prezentacji danych w Power BI oparty na przykładowym zestawie danych Helpdesku IT."
+    technologies:
+      - "Power BI"
+      - "Microsoft Fabric"
+    url: "https://app.powerbi.com/view?r=eyJrIjoiZmIwMWVjNDctMWViYy00ZGNkLThhODUtMjBjODM2ODc5YjVhIiwidCI6ImIyMmE2MGM2LWIzMjAtNGE1ZS1iNTk5LWNjNzBlN2Q4YzEyYyJ9&pageName=b05a02c0089dcd97481d"
   - name: "YAML Resume Website"
     icon: pepicons-pop:cv
     description:

@@ -34,11 +34,12 @@ certifications:
     icon: "material-icon-theme:python"
     url: "https://www.datacamp.com/certificate/PDA0014926426913"
   - name:
-      en: "DP-600 Fabric - Analytic Engineer"
+      en: "DP-600 Fabric - Analytic Engineer Associate"
       pl: "DP-600 Fabric - Inżynier Analityki"
     issuer: "Microsoft"
     date:
-      en: "Exam in April 2026"
-      pl: "Egzamin w kwietniu 2026"
+      en: "April 2026"
+      pl: "Kwiecień 2026"
     icon: "logos:microsoft-icon"
+    url:  "https://learn.microsoft.com/en-us/users/nullbro/credentials/99f270590bc187f3"
 
