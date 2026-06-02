@@ -18,7 +18,7 @@ function renderContent(data) {
   buildProjects(data);
   initSectionTitleAnimations();
   const footer = document.getElementById('footer-text');
-if (footer) footer.textContent = `© ${new Date().getFullYear()} ${t(data.name)}`;
+if (footer) footer.textContent = `© ${new Date().getFullYear()} ${t(data.name)} | Website by Vizcraft.pl Jacek Jabłonowski`;
 
 }
 
