@@ -7,7 +7,7 @@ projects:
     technologies:
       - "Power BI"
       - "Microsoft Fabric"
-    url: "https://app.powerbi.com/view?r=eyJrIjoiZmIwMWVjNDctMWViYy00ZGNkLThhODUtMjBjODM2ODc5YjVhIiwidCI6ImIyMmE2MGM2LWIzMjAtNGE1ZS1iNTk5LWNjNzBlN2Q4YzEyYyJ9&pageName=b05a02c0089dcd97481d"
+    url: "https://app.powerbi.com/view?r=eyJrIjoiNGRmNjU4YzAtYjZiNi00NjIwLWFiZGUtN2EwNjNmMThlOTBmIiwidCI6ImIyMmE2MGM2LWIzMjAtNGE1ZS1iNTk5LWNjNzBlN2Q4YzEyYyJ9"
   - name: "YAML Resume Website"
     icon: pepicons-pop:cv
     description:

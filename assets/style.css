@@ -301,7 +301,7 @@ a:hover { color: var(--text); }
   gap:             calc(var(--gap) / 2) ;
 }
 
-.nav-links {
+.nav-links, .nav-links-index {
   display:     flex;
   list-style:  none;
   gap:         calc(var(--gap) / 2);
@@ -310,6 +310,7 @@ a:hover { color: var(--text); }
 
 /* Shared blob style — nav links and lang buttons */
 .nav-links a,
+.nav-links-index a,
 .lang-btn {
   
   display:                 flex;
@@ -382,6 +383,7 @@ a:hover { color: var(--text); }
 
 
 .nav-links a:hover,
+.nav-links-index a:hover,
 .lang-btn:hover {
   color:        var(--text);
   border-color: var(--accent-glow-lg);
@@ -389,6 +391,7 @@ a:hover { color: var(--text); }
 }
 
 .nav-links a.active,
+.nav-links-index a.active,
 .lang-btn.active {
   color:        var(--accent-light);
   border-color: var(--accent-glow-lg);
@@ -465,7 +468,8 @@ a:hover { color: var(--text); }
 
 
 /* In drawer, nav-links go vertical */
-#mobile-drawer .nav-links {
+#mobile-drawer .nav-links,
+#mobile-drawer .nav-links-index{
   flex:            1;
   flex-direction:  column;
   justify-content: center;
@@ -473,13 +477,15 @@ a:hover { color: var(--text); }
   overflow:        hidden;
 }
 
-#mobile-drawer .nav-links li {
+#mobile-drawer .nav-links li,
+#mobile-drawer .nav-links-index li {
   flex:        1;
   display:     flex;
   align-items: stretch;
 }
 
-#mobile-drawer .nav-links a {
+#mobile-drawer .nav-links a,
+#mobile-drawer .nav-links-index a {
   width:     100%;
   font-size: 1rem;
 }
