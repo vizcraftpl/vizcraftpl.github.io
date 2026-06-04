@@ -8,9 +8,9 @@ contact:
     icon: "mdi:phone"
     href: "tel:+48451199446"
   email:
-    value: "jablonowski@mats.im"
+    value: "mats@vizcraft.pl"
     icon: "mdi:email"
-    href: "mailto:jablonowski@mats.im"
+    href: "mailto:mats@vizcraft.pl"
   location:
     value: "Katowice, PL"
     icon: "mdi:map-marker"

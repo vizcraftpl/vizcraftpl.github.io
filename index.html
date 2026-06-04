@@ -18,8 +18,13 @@
 
   <!-- Mobile drawer -->
   <div id="mobile-drawer">
+    <img 
+          sizes="auto, (max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"
+          src="assets/viz_logo_temp_h.svg" 
+          alt="Logo" 
+          onerror="this.style.display='none'">
     <ul class="nav-links" id="mobile-nav-links"></ul>
-    <div class="language-switcher" id="mobile-language-switcher"></div>
+  
   </div>
 
   <!-- Page grid -->
@@ -27,12 +32,15 @@
 
     <!-- Left column -->
     <aside id="left-col">
-      <div class="profile-photo">
-        <img src="assets/photo.png" alt="Profile Photo" onerror="this.style.display='none'">
-      </div>
+      <img 
+          sizes="auto, (max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"
+          src="assets/viz_logo_temp_h.svg" 
+          alt="Logo" 
+          onerror="this.style.display='none'">
+        <ul class="nav-links" id="nav-links"></ul>
       <div class="left-card">
-        <h1 class="profile-name" id="profile-name"></h1>
-        <ul class="contact-list" id="contact-list"></ul>
+        <ul class="contact-list" id="contact-list"><li></li></ul>
+        <p class="profile-company" id="profile-company" style="color: rgb(139, 148, 158);">Vizcraft.pl Jacek Jabłonowski<br> NIP: 9542843099 <br> REGON: 522635881</p>
       </div>
     </aside>
 
@@ -40,63 +48,36 @@
     <div id="right-col">
 
       <!-- Sticky top nav (desktop only) -->
+       <div id="bg-download-controls">
       <nav id="top-nav">
-        <ul class="nav-links" id="nav-links"></ul>
-        <div class="language-switcher" id="language-switcher"></div>
-      </nav>
+        <ul class="nav-links-index" id="mobile-nav-links-index">
+          <li><a href="./cv.html"><span class="iconify" data-icon="mdi:resume" style="padding: 0 3px 0 0; width: 2rem; height: 2rem;"></span>Resume</a></li>
+          <li><a href="https://app.powerbi.com/view?r=eyJrIjoiZmIwMWVjNDctMWViYy00ZGNkLThhODUtMjBjODM2ODc5YjVhIiwidCI6ImIyMmE2MGM2LWIzMjAtNGE1ZS1iNTk5LWNjNzBlN2Q4YzEyYyJ9&pageName=b05a02c0089dcd97481d"><span class="iconify" data-icon="logos:microsoft-power-bi" style="padding: 0 3px 0 0; width: 2rem; height: 2rem;"></span>Portfolio Dashboard</a></li>
+          <li>
+            <a id="bg-download-btn" role="button" title="Download background snapshot">
+              <span class="iconify" data-icon="mdi:download" style="padding: 0 3px 0 0; width: 2rem; height: 2rem;"></span>
+              Download Page Background
+            </a>
+          </li>
+          <li>
+            <select id="bg-size-select" class="nav-links-select">
+              <option value="screen">Screen (live)</option>
+              <option value="1920x1080">1920 × 1080</option>
+              <option value="2560x1440">2560 × 1440</option>
+              <option value="3840x2160">3840 × 2160 (4K)</option>
+              <option value="1080x1920">1080 × 1920 (mobile)</option>
+            </select>
+          </li>
+          
+        </ul>
+        </nav>
 
-      <!-- Summary — always visible -->
-      <section id="summary-section" class="section">
-        <h2 class="section-title">Summary</h2>
-        <p id="summary-text"></p>
-      </section>
-
-      <!-- Skills Technical -->
-      <section id="skills-technical" class="section" data-nav-section>
-        <h2 class="section-title" id="skills-technical-title"></h2>
-        <div id="skills-grid-technical" class="skills-grid"></div>
-      </section>
-
-      <!-- Skills Soft -->
-      <section id="skills-soft" class="section" data-nav-section>
-        <h2 class="section-title" id="skills-soft-title"></h2>
-        <div id="skills-grid-soft"></div>
-      </section>
-
-      <!-- Languages -->
-      <section id="languages-section" class="section" data-nav-section>
-        <h2 class="section-title" id="languages-title"></h2>
-        <div id="languages-grid"></div>
-      </section>
-
-      <!-- Certifications -->
-      <section id="certifications-section" class="section" data-nav-section>
-        <h2 class="section-title" id="certifications-title"></h2>
-        <div id="certifications-grid"></div>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience-section" class="section" data-nav-section>
-        <h2 class="section-title" id="experience-title"></h2>
-        <div id="experience-timeline"></div>
-      </section>
-
-      <!-- Education -->
-      <section id="education-section" class="section" data-nav-section>
-        <h2 class="section-title" id="education-title"></h2>
-        <div id="education-grid"></div>
-      </section>
-
-      <!-- Projects -->
-      <section id="projects-section" class="section" data-nav-section>
-        <h2 class="section-title" id="projects-title"></h2>
-        <div id="projects-list"></div>
-      </section>
-
-      <footer>
-        <span id="footer-text"></span>
+      </div>
+      
+        <footer>
+        <span id="footer-text">© 2026 Vizcraft.pl Jacek Jabłonowski</span>
       </footer>
-
+      
     </div>
   </div>
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
